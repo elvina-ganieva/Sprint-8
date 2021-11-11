@@ -1,0 +1,6 @@
+mvn -N io.takari:maven:wrapper
+.\mvnw package
+docker build -t spring-boot-docker .
+docker run -e "SPRING_PROFILES_ACTIVE=prod" -p 8080:8080 -t spring-boot-docker
+docker run -e "SPRING_PROFILES_ACTIVE=qa" -p 8080:8080 -t spring-boot-docker
+
