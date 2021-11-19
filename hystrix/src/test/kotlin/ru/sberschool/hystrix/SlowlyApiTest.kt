@@ -3,7 +3,6 @@ package ru.sberschool.hystrix
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import feign.Feign
 import feign.Request
 import feign.httpclient.ApacheHttpClient
 import feign.hystrix.HystrixFeign
@@ -25,11 +24,17 @@ class SlowlyApiTest {
         .registerModule(KotlinModule())
         .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 
-    private val client = HystrixFeign.builder()
+    private val mockClient = HystrixFeign.builder()
         .client(ApacheHttpClient())
         .decoder(JacksonDecoder(mapper))
         .options(Request.Options(1, TimeUnit.SECONDS, 1, TimeUnit.SECONDS, true))
-        .target(SlowlyApi::class.java, "https://pokeapi.co/api/v2/", FallbackSlowlyApi())
+        .target(SlowlyApi::class.java, "http://127.0.0.1:18080", FallbackSlowlyApi())
+
+    private val pokeApiClient = HystrixFeign.builder()
+        .client(ApacheHttpClient())
+        .decoder(JacksonDecoder(mapper))
+        .options(Request.Options(1, TimeUnit.SECONDS, 1, TimeUnit.SECONDS, true))
+        .target(SlowlyApi::class.java, "https://pokeapi.co/api/v2", FallbackSlowlyApi())
 
     lateinit var mockServer: ClientAndServer
 
@@ -45,80 +50,47 @@ class SlowlyApiTest {
     }
 
     @Test
-    fun `getFirstPokemon should return no name`() {
-        // given
+    fun `getFourthAbility should return fallback from mock client`() {
         MockServerClient("127.0.0.1", 18080)
             .`when`(
                 // задаем матчер для нашего запроса
                 HttpRequest.request()
                     .withMethod("GET")
-                    .withPath("/pokemon/?limit=1")
+                    .withPath("/ability/4")
             )
             .respond(
                 HttpResponse.response()
                     .withStatusCode(400)
                     .withDelay(TimeUnit.SECONDS, 30)
+                    .withBody("{\"name\": \"battle-armor\"}")
             )
-        // expect
-        assertEquals("no name", client.getFirstPokemon().results!![0].name)
-//        println("pokemon name: ${client.getFirstPokemon().results!![0].name}")
+        assertEquals("fallback", mockClient.getFourthAbility().name)
     }
 
     @Test
-    fun `getFirstAbility should return stench`() {
+    fun `getFourthAbility should return battle-armor from mock server`() {
         // given
         MockServerClient("127.0.0.1", 18080)
             .`when`(
-                // задаем матчер для нашего запроса
                 HttpRequest.request()
                     .withMethod("GET")
-                    .withPath("/ability/?limit=1")
+                    .withPath("/ability/4")
             )
             .respond(
                 HttpResponse.response()
-                    .withStatusCode(201)
+                    .withStatusCode(200)
+                    .withBody("{\"name\": \"battle-armor\"}")
             )
-        // expect
-        assertEquals("stench", client.getFirstAbility().results!![0].name)
-//        println("ability name: ${client.getFirstAbility().results!![0].name}")
-    }
-
-
-    @Test
-    fun `getFirstLocation should return canalave-city`() {
-        // given
-        MockServerClient("127.0.0.1", 18080)
-            .`when`(
-                // задаем матчер для нашего запроса
-                HttpRequest.request()
-                    .withMethod("GET")
-                    .withPath("/location/?limit=1")
-            )
-            .respond(
-                HttpResponse.response()
-                    .withStatusCode(201)
-            )
-        // expect
-        assertEquals("canalave-city", client.getFirstLocation().results!![0].name)
-//        println("location name: ${client.getFirstLocation().results!![0].name}")
+        assertEquals("battle-armor", mockClient.getFourthAbility().name)
     }
 
     @Test
-    fun `getFirstGame should return generation-i`() {
-        // given
-        MockServerClient("127.0.0.1", 18080)
-            .`when`(
-                // задаем матчер для нашего запроса
-                HttpRequest.request()
-                    .withMethod("GET")
-                    .withPath("/generation/?limit=1")
-            )
-            .respond(
-                HttpResponse.response()
-                    .withStatusCode(201)
-            )
-        // expect
-        assertEquals("generation-i", client.getFirstGame().results!![0].name)
-//        println("game name: ${client.getFirstGame().results!![0].name}")
+    fun `getFourthAbility1 should return battle-armor from actual api`() {
+        assertEquals("battle-armor", pokeApiClient.getFourthAbility().name)
+    }
+
+    @Test
+    fun `getFourthAbility2 should return battle-armor from actual api`() {
+        assertEquals("battle-armor", pokeApiClient.getFourthAbility().name)
     }
 }
