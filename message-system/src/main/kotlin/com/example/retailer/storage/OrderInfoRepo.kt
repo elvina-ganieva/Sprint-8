@@ -5,4 +5,4 @@ import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface OrderInfoRepo : CrudRepository<OrderInfo, Long>
+interface OrderInfoRepo : CrudRepository<OrderInfo, String>

@@ -20,6 +20,7 @@ class Impl : DistributorPublisher {
     override fun placeOrder(order: Order): Boolean {
         val objectMapper = ObjectMapper()
         val message = objectMapper.writeValueAsString(order)
+        println("message: $message")
         template.convertAndSend(message, topic.name) { m: Message ->
             m.messageProperties.headers["Notify-Exchange"] = "distributor_exchange"
             m.messageProperties.headers["Notify-RoutingKey"] = "retailer.myGitHub.#"

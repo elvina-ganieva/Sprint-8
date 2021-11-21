@@ -29,7 +29,7 @@ class OrderStorageImpl : OrderStorage {
     }
 
     override fun updateOrder(order: OrderInfo): Boolean {
-        if (orderRepo.existsById(order.orderId.toLong())) {
+        if (orderRepo.existsById(order.orderId)) {
             orderInfoRepo.save(order)
             return true
         } else
@@ -37,6 +37,6 @@ class OrderStorageImpl : OrderStorage {
     }
 
     override fun getOrderInfo(id: String): OrderInfo? {
-        return orderInfoRepo.findByIdOrNull(id.toLong())
+        return orderInfoRepo.findByIdOrNull(id)
     }
 }
