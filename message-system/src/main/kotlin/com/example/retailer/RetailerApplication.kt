@@ -18,12 +18,12 @@ class RetailerApplication {
 
     @Bean
     fun queue(): Queue {
-        return Queue("retailer_queue", false, false, true)
+        return Queue("retailer_queue", false)
     }
 
     @Bean
     fun exchange(): TopicExchange {
-        return TopicExchange("distributor_exchange", true, false)
+        return TopicExchange("distributor_exchange")
     }
 
     @Bean

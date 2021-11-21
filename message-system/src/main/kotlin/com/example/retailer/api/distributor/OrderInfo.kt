@@ -23,7 +23,6 @@ data class OrderInfo(
      *
      */
     @Column
-    @Enumerated
     var status: OrderStatus,
 
     /**

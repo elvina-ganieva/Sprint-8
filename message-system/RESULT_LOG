@@ -1,1 +1,110 @@
-Разместите в этом файле лог успешного теста
+2021-11-21 21:19:05.132  INFO 8216 --- [           main] c.e.retailer.RetailerApplicationTests    : Starting RetailerApplicationTests using Java 1.8.0_281 on LAPTOP-OI1V1GSH with PID 8216 (started by acer in C:\Users\acer\Desktop\ффф\message-system)
+2021-11-21 21:19:05.136  INFO 8216 --- [           main] c.e.retailer.RetailerApplicationTests    : No active profile set, falling back to default profiles: default
+2021-11-21 21:19:07.038  INFO 8216 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-21 21:19:07.148  INFO 8216 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 2 JPA repository interfaces.
+2021-11-21 21:19:08.879  INFO 8216 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2021-11-21 21:19:08.898  INFO 8216 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-21 21:19:08.899  INFO 8216 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-21 21:19:09.183  INFO 8216 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-21 21:19:09.184  INFO 8216 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3957 ms
+2021-11-21 21:19:09.839  INFO 8216 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-21 21:19:09.997  INFO 8216 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-11-21 21:19:10.320  INFO 8216 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-11-21 21:19:10.590  INFO 8216 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-21 21:19:11.439  INFO 8216 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-21 21:19:11.524  INFO 8216 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-11-21 21:19:12.086  WARN 8216 --- [           main] org.hibernate.id.UUIDHexGenerator        : HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2021-11-21 21:19:12.834  INFO 8216 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-21 21:19:12.860  INFO 8216 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 21:19:15.100  WARN 8216 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-21 21:19:15.702 DEBUG 8216 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-11-21 21:19:16.002 DEBUG 8216 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 4 mappings in 'requestMappingHandlerMapping'
+2021-11-21 21:19:16.230 DEBUG 8216 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2021-11-21 21:19:16.304 DEBUG 8216 --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-11-21 21:19:16.958  INFO 8216 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 55235 (http) with context path ''
+2021-11-21 21:19:16.965  INFO 8216 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2021-11-21 21:19:17.179  INFO 8216 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#67eeb310:0/SimpleConnection@ace2408 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 55238]
+2021-11-21 21:19:17.194  INFO 8216 --- [           main] o.s.amqp.rabbit.core.RabbitAdmin         : Auto-declaring a non-durable, auto-delete, or exclusive Queue (retailer_queue) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2021-11-21 21:19:17.253 ERROR 8216 --- [ 127.0.0.1:5672] o.s.a.r.c.CachingConnectionFactory       : Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'retailer_queue' in vhost '/': received 'false' but current is 'true', class-id=50, method-id=10)
+2021-11-21 21:19:18.271  INFO 8216 --- [           main] o.s.amqp.rabbit.core.RabbitAdmin         : Auto-declaring a non-durable, auto-delete, or exclusive Queue (retailer_queue) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2021-11-21 21:19:18.280 ERROR 8216 --- [ 127.0.0.1:5672] o.s.a.r.c.CachingConnectionFactory       : Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'retailer_queue' in vhost '/': received 'false' but current is 'true', class-id=50, method-id=10)
+2021-11-21 21:19:20.295  INFO 8216 --- [           main] o.s.amqp.rabbit.core.RabbitAdmin         : Auto-declaring a non-durable, auto-delete, or exclusive Queue (retailer_queue) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2021-11-21 21:19:20.302 ERROR 8216 --- [ 127.0.0.1:5672] o.s.a.r.c.CachingConnectionFactory       : Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'retailer_queue' in vhost '/': received 'false' but current is 'true', class-id=50, method-id=10)
+2021-11-21 21:19:24.311  INFO 8216 --- [           main] o.s.amqp.rabbit.core.RabbitAdmin         : Auto-declaring a non-durable, auto-delete, or exclusive Queue (retailer_queue) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2021-11-21 21:19:24.320 ERROR 8216 --- [ 127.0.0.1:5672] o.s.a.r.c.CachingConnectionFactory       : Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'retailer_queue' in vhost '/': received 'false' but current is 'true', class-id=50, method-id=10)
+2021-11-21 21:19:29.333  INFO 8216 --- [           main] o.s.amqp.rabbit.core.RabbitAdmin         : Auto-declaring a non-durable, auto-delete, or exclusive Queue (retailer_queue) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2021-11-21 21:19:29.340 ERROR 8216 --- [ 127.0.0.1:5672] o.s.a.r.c.CachingConnectionFactory       : Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'retailer_queue' in vhost '/': received 'false' but current is 'true', class-id=50, method-id=10)
+2021-11-21 21:19:29.345  INFO 8216 --- [           main] o.s.a.r.l.SimpleMessageListenerContainer : Broker not available; cannot force queue declarations during start: java.io.IOException
+2021-11-21 21:19:29.394  INFO 8216 --- [           main] c.e.retailer.RetailerApplicationTests    : Started RetailerApplicationTests in 25.148 seconds (JVM running for 27.438)
+2021-11-21 21:19:29.665 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : HTTP POST http://localhost:55235/placeOrder
+2021-11-21 21:19:30.246 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2021-11-21 21:19:30.306 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Writing [Order(id=null, address=sample address, recipient=sample recipient, items=[Item(id=1, name=Sample item), Item(id=2, name=Another item)])] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2021-11-21 21:19:30.465  INFO 8216 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-11-21 21:19:30.465  INFO 8216 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-11-21 21:19:30.465 DEBUG 8216 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-11-21 21:19:30.465 DEBUG 8216 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-11-21 21:19:30.465 DEBUG 8216 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-11-21 21:19:30.466 DEBUG 8216 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7ecb9e17
+2021-11-21 21:19:30.466 DEBUG 8216 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@11adab6d
+2021-11-21 21:19:30.467 DEBUG 8216 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-11-21 21:19:30.467  INFO 8216 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-11-21 21:19:30.481 DEBUG 8216 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/placeOrder", parameters={}
+2021-11-21 21:19:30.487 DEBUG 8216 --- [o-auto-1-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.retailer.endpoint.RetailEndpoint#placeOrder(Order)
+2021-11-21 21:19:30.542 DEBUG 8216 --- [o-auto-1-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [Order(id=null, address=sample address, recipient=sample recipient, items=[Item(id=1, name=Sample ite (truncated)...]
+2021-11-21 21:19:30.795 DEBUG 8216 --- [o-auto-1-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-11-21 21:19:30.796 DEBUG 8216 --- [o-auto-1-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [OrderInfo(orderId=2c9c90817d43b939017d43b981ad0000, status=SENT, signature=signature)]
+2021-11-21 21:19:30.808 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2021-11-21 21:19:30.808 DEBUG 8216 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-11-21 21:19:30.809 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Reading to [com.example.retailer.api.distributor.OrderInfo]
+2021-11-21 21:19:30.823 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:55235/view/2c9c90817d43b939017d43b981ad0000
+2021-11-21 21:19:30.823 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2021-11-21 21:19:30.825 DEBUG 8216 --- [o-auto-1-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/view/2c9c90817d43b939017d43b981ad0000", parameters={}
+2021-11-21 21:19:30.826 DEBUG 8216 --- [o-auto-1-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.retailer.endpoint.RetailEndpoint#viewOrder(String)
+2021-11-21 21:19:30.857 DEBUG 8216 --- [o-auto-1-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-11-21 21:19:30.857 DEBUG 8216 --- [o-auto-1-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [OrderInfo(orderId=2c9c90817d43b939017d43b981ad0000, status=SENT, signature=signature)]
+2021-11-21 21:19:30.858 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2021-11-21 21:19:30.859 DEBUG 8216 --- [o-auto-1-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-11-21 21:19:30.859 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Reading to [com.example.retailer.api.distributor.OrderInfo]
+2021-11-21 21:19:31.164 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:55235/view/2c9c90817d43b939017d43b981ad0000
+2021-11-21 21:19:31.165 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2021-11-21 21:19:31.167 DEBUG 8216 --- [o-auto-1-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/view/2c9c90817d43b939017d43b981ad0000", parameters={}
+2021-11-21 21:19:31.168 DEBUG 8216 --- [o-auto-1-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.retailer.endpoint.RetailEndpoint#viewOrder(String)
+2021-11-21 21:19:31.176 DEBUG 8216 --- [o-auto-1-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-11-21 21:19:31.176 DEBUG 8216 --- [o-auto-1-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [OrderInfo(orderId=2c9c90817d43b939017d43b981ad0000, status=SENT, signature=signature)]
+2021-11-21 21:19:31.177 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2021-11-21 21:19:31.178 DEBUG 8216 --- [o-auto-1-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-11-21 21:19:31.178 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Reading to [com.example.retailer.api.distributor.OrderInfo]
+2021-11-21 21:19:31.492 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:55235/view/2c9c90817d43b939017d43b981ad0000
+2021-11-21 21:19:31.494 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2021-11-21 21:19:31.496 DEBUG 8216 --- [o-auto-1-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/view/2c9c90817d43b939017d43b981ad0000", parameters={}
+2021-11-21 21:19:31.497 DEBUG 8216 --- [o-auto-1-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.retailer.endpoint.RetailEndpoint#viewOrder(String)
+2021-11-21 21:19:31.500 DEBUG 8216 --- [o-auto-1-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-11-21 21:19:31.500 DEBUG 8216 --- [o-auto-1-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [OrderInfo(orderId=2c9c90817d43b939017d43b981ad0000, status=CREATED, signature=46442f3094c08e9c0f74d4 (truncated)...]
+2021-11-21 21:19:31.501 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2021-11-21 21:19:31.501 DEBUG 8216 --- [o-auto-1-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-11-21 21:19:31.501 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Reading to [com.example.retailer.api.distributor.OrderInfo]
+2021-11-21 21:19:31.502 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:55235/view/2c9c90817d43b939017d43b981ad0000
+2021-11-21 21:19:31.502 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2021-11-21 21:19:31.504 DEBUG 8216 --- [o-auto-1-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/view/2c9c90817d43b939017d43b981ad0000", parameters={}
+2021-11-21 21:19:31.505 DEBUG 8216 --- [o-auto-1-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.retailer.endpoint.RetailEndpoint#viewOrder(String)
+2021-11-21 21:19:31.511 DEBUG 8216 --- [o-auto-1-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-11-21 21:19:31.511 DEBUG 8216 --- [o-auto-1-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [OrderInfo(orderId=2c9c90817d43b939017d43b981ad0000, status=CREATED, signature=46442f3094c08e9c0f74d4 (truncated)...]
+2021-11-21 21:19:31.513 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2021-11-21 21:19:31.513 DEBUG 8216 --- [o-auto-1-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-11-21 21:19:31.513 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Reading to [com.example.retailer.api.distributor.OrderInfo]
+2021-11-21 21:19:31.820 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : HTTP GET http://localhost:55235/view/2c9c90817d43b939017d43b981ad0000
+2021-11-21 21:19:31.820 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2021-11-21 21:19:31.823 DEBUG 8216 --- [o-auto-1-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/view/2c9c90817d43b939017d43b981ad0000", parameters={}
+2021-11-21 21:19:31.823 DEBUG 8216 --- [o-auto-1-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.retailer.endpoint.RetailEndpoint#viewOrder(String)
+2021-11-21 21:19:31.827 DEBUG 8216 --- [o-auto-1-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-11-21 21:19:31.827 DEBUG 8216 --- [o-auto-1-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [OrderInfo(orderId=2c9c90817d43b939017d43b981ad0000, status=DELIVERED, signature=46442f3094c08e9c0f74 (truncated)...]
+2021-11-21 21:19:31.828 DEBUG 8216 --- [o-auto-1-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-11-21 21:19:31.828 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Response 200 OK
+2021-11-21 21:19:31.829 DEBUG 8216 --- [           main] o.s.web.client.RestTemplate              : Reading to [com.example.retailer.api.distributor.OrderInfo]
+2021-11-21 21:19:31.864  INFO 8216 --- [ionShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2021-11-21 21:19:32.541  INFO 8216 --- [ionShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2021-11-21 21:19:32.902  INFO 8216 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-21 21:19:32.907  INFO 8216 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-21 21:19:32.917  INFO 8216 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+Process finished with exit code 0

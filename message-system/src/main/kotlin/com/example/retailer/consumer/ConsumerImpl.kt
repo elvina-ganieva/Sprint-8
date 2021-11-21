@@ -14,7 +14,6 @@ class ConsumerImpl : Consumer {
     override fun receiveUpdate(orderInfo: String) {
         val mapper = ObjectMapper()
         val info = mapper.readValue(orderInfo, OrderInfo::class.java)
-        println("status: " + info.status)
         orderService.updateOrderInfo(info)
     }
 }
