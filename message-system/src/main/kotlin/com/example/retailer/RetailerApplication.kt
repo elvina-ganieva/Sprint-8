@@ -1,5 +1,7 @@
 package com.example.retailer
 
+import com.example.retailer.consumer.Consumer
+import com.example.retailer.consumer.ConsumerImpl
 import org.springframework.amqp.core.Binding
 import org.springframework.amqp.core.BindingBuilder
 import org.springframework.amqp.core.Queue
@@ -25,6 +27,11 @@ class RetailerApplication {
 	@Bean
 	fun binding(queue: Queue?, exchange: TopicExchange?): Binding? {
 		return BindingBuilder.bind(queue).to(exchange).with("retailer.elvina-ganieva.#")
+	}
+
+	@Bean
+	fun receiver(): ConsumerImpl? {
+		return ConsumerImpl()
 	}
 
 }

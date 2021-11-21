@@ -21,7 +21,7 @@ class Impl : DistributorPublisher {
         val objectMapper = ObjectMapper()
         val message = objectMapper.writeValueAsString(order)
         println("message: $message")
-        template.convertAndSend(message, topic.name) { m: Message ->
+        template.convertAndSend(message, "distributor.placeOrder.${order.id}", topic.name) { m: Message ->
             m.messageProperties.headers["Notify-Exchange"] = "distributor_exchange"
             m.messageProperties.headers["Notify-RoutingKey"] = "retailer.elvina-ganieva.#"
             m
