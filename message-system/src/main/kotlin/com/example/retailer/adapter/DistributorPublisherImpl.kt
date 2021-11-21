@@ -18,11 +18,18 @@ class DistributorPublisherImpl : DistributorPublisher {
     override fun placeOrder(order: Order): Boolean {
         val objectMapper = ObjectMapper()
         val message = objectMapper.writeValueAsString(order)
-        template.convertAndSend(topic.name, "distributor.placeOrder.elvina-ganieva.${order.id}", message) { m: Message ->
-            m.messageProperties.headers["Notify-Exchange"] = "distributor_exchange"
-            m.messageProperties.headers["Notify-RoutingKey"] = "retailer.elvina-ganieva"
-            m
-        }
-        return true
+        if (order.id != null) {
+            template.convertAndSend(
+                topic.name,
+                "distributor.placeOrder.elvina-ganieva.${order.id}",
+                message
+            ) { m: Message ->
+                m.messageProperties.headers["Notify-Exchange"] = "distributor_exchange"
+                m.messageProperties.headers["Notify-RoutingKey"] = "retailer.elvina-ganieva"
+                m
+            }
+            return true
+        } else
+            return false
     }
 }
