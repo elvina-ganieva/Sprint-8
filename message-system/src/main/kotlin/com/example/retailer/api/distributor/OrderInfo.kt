@@ -15,7 +15,6 @@ data class OrderInfo(
      * @see com.example.retailer.api.distributor.Item#id
      */
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val orderId: String,
 
     /**
@@ -24,6 +23,7 @@ data class OrderInfo(
      *
      */
     @Column
+    @Enumerated
     var status: OrderStatus,
 
     /**

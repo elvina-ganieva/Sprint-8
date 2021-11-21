@@ -24,7 +24,7 @@ class RetailerApplication {
 
 	@Bean
 	fun binding(queue: Queue?, exchange: TopicExchange?): Binding? {
-		return BindingBuilder.bind(queue).to(exchange).with("retailer.myGitHub.#")
+		return BindingBuilder.bind(queue).to(exchange).with("retailer.elvina-ganieva.#")
 	}
 
 }

@@ -23,7 +23,7 @@ class Impl : DistributorPublisher {
         println("message: $message")
         template.convertAndSend(message, topic.name) { m: Message ->
             m.messageProperties.headers["Notify-Exchange"] = "distributor_exchange"
-            m.messageProperties.headers["Notify-RoutingKey"] = "retailer.myGitHub.#"
+            m.messageProperties.headers["Notify-RoutingKey"] = "retailer.elvina-ganieva.#"
             m
         }
         return true
