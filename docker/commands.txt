@@ -1,6 +1,15 @@
+1)
 mvn -N io.takari:maven:wrapper
 .\mvnw package
 docker build -t spring-boot-docker .
 docker run -e "SPRING_PROFILES_ACTIVE=prod" -p 8080:8080 -t spring-boot-docker
 docker run -e "SPRING_PROFILES_ACTIVE=qa" -p 8080:8080 -t spring-boot-docker
+
+2)
+minikube start driver=docker
+minikube docker-env
+minikube -p minikube docker-env | Invoke-Expression
+docker build -t spring-boot-docker .
+kubectl apply -f .\deployment-definition.yml
+kubectl get pod
 
